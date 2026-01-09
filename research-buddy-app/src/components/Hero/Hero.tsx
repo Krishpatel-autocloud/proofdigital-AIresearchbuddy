@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { Input, Select } from '../ui';
+import { Input, Select, CustomSelect } from '../ui';
 import Stepper, { Step } from '../ui/Stepper';
 
 interface HeroProps {
@@ -38,7 +38,6 @@ export const Hero: React.FC<HeroProps> = ({
   const [marketData, setMarketData] = useState({
     domain: '',
     productOffering: '',
-    service: '',
   });
 
   const handleLocalClick = () => {
@@ -88,8 +87,8 @@ export const Hero: React.FC<HeroProps> = ({
             </p>
             
             {/* Personalized Headline */}
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-5 leading-tight">
-              Let's prepare a competitive analysis, {firstName}
+            <h1 className="text-4xl lg:text-5xl font-bold mb-5 leading-tight text-[#151417] dark:text-white transition-colors duration-300">
+              Let's prepare a competitive analysis, <span className="text-[#13b2e3] dark:text-cyan-400 transition-colors duration-300">{firstName}</span>
             </h1>
             
             {/* Supporting Text */}
@@ -101,8 +100,8 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="flex flex-col gap-4 pt-8 border-t-2 border-gray-200 dark:border-gray-800">
               <button
                 onClick={handleLocalClick}
-                className={`flex items-center justify-between px-8 py-5 bg-white dark:bg-gray-900 border-2 rounded-2xl hover:border-primary-500 dark:hover:border-primary-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200 group ${
-                  selectedType === 'local' ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20' : 'border-gray-200 dark:border-gray-800'
+                className={`flex items-center justify-between px-8 py-6 bg-white dark:bg-gray-900 border rounded-2xl hover:border-primary-400 dark:hover:border-primary-500 hover:shadow-md transition-all duration-200 group ${
+                  selectedType === 'local' ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20 shadow-sm' : 'border-gray-200 dark:border-gray-800'
                 }`}
               >
                 <div className="flex items-center gap-4">
@@ -116,7 +115,7 @@ export const Hero: React.FC<HeroProps> = ({
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <span className="text-lg font-semibold text-gray-900 dark:text-white">Local Competitive Analysis</span>
+                  <span className="text-lg font-semibold text-gray-900 dark:text-white">Geographical Competitor Analysis</span>
                 </div>
                 <svg className="w-5 h-5 text-gray-400 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -125,8 +124,8 @@ export const Hero: React.FC<HeroProps> = ({
 
               <button
                 onClick={handleOnlineClick}
-                className={`flex items-center justify-between px-8 py-5 bg-white dark:bg-gray-900 border-2 rounded-2xl hover:border-primary-500 dark:hover:border-primary-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200 group ${
-                  selectedType === 'online' ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20' : 'border-gray-200 dark:border-gray-800'
+                className={`flex items-center justify-between px-8 py-6 bg-white dark:bg-gray-900 border rounded-2xl hover:border-primary-400 dark:hover:border-primary-500 hover:shadow-md transition-all duration-200 group ${
+                  selectedType === 'online' ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20 shadow-sm' : 'border-gray-200 dark:border-gray-800'
                 }`}
               >
                 <div className="flex items-center gap-4">
@@ -139,7 +138,7 @@ export const Hero: React.FC<HeroProps> = ({
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                     </svg>
                   </div>
-                  <span className="text-lg font-semibold text-gray-900 dark:text-white">Online Competitive Analysis</span>
+                  <span className="text-lg font-semibold text-gray-900 dark:text-white">Online Competitor Analysis</span>
                 </div>
                 <svg className="w-5 h-5 text-gray-400 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -148,8 +147,8 @@ export const Hero: React.FC<HeroProps> = ({
 
               <button
                 onClick={handleMarketClick}
-                className={`flex items-center justify-between px-8 py-5 bg-white dark:bg-gray-900 border-2 rounded-2xl hover:border-primary-500 dark:hover:border-primary-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200 group ${
-                  selectedType === 'market' ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20' : 'border-gray-200 dark:border-gray-800'
+                className={`flex items-center justify-between px-8 py-6 bg-white dark:bg-gray-900 border rounded-2xl hover:border-primary-400 dark:hover:border-primary-500 hover:shadow-md transition-all duration-200 group ${
+                  selectedType === 'market' ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20 shadow-sm' : 'border-gray-200 dark:border-gray-800'
                 }`}
               >
                 <div className="flex items-center gap-4">
@@ -172,10 +171,10 @@ export const Hero: React.FC<HeroProps> = ({
           </div>
 
           {/* Right Column - Interactive Area with Stepper */}
-          <div className="flex flex-col min-h-[550px]">
+          <div className="flex flex-col min-h-[700px]">
             {/* Placeholder State */}
             {!selectedType && (
-              <div className="bg-gray-50 dark:bg-gray-900 rounded-3xl border-2 border-gray-200 dark:border-gray-800 p-10 h-full flex flex-col items-center justify-center text-center">
+              <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl p-12 h-full flex flex-col items-center justify-center text-center">
                 <div className="w-20 h-20 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
                   <svg 
                     className="w-10 h-10 text-primary-500" 
@@ -191,7 +190,7 @@ export const Hero: React.FC<HeroProps> = ({
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
                   Select a research type to begin
                 </h3>
                 <p className="text-base text-gray-600 dark:text-gray-400 max-w-sm mx-auto leading-relaxed">
@@ -209,73 +208,102 @@ export const Hero: React.FC<HeroProps> = ({
                 nextButtonText="Next →"
                 backButtonText="← Back"
               >
-                <Step>
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                      Location Details
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                      Tell us where your business is located
-                    </p>
-                    <div className="grid grid-cols-2 gap-4">
+                  <Step>
+                  <div className="space-y-8">
+                    <div>
+                      <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                        Location Details
+                      </h3>
+                      <p className="text-lg text-gray-500 dark:text-gray-400">
+                        Tell us where your business is located
+                      </p>
+                    </div>
+                    <div className="space-y-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        <label className="block text-base font-medium text-gray-700 dark:text-gray-300 mb-3">
                           State
                         </label>
-                        <Select name="state" value={localData.state} onChange={handleLocalChange}>
-                          <option value="">Select state</option>
-                          <option value="CA">California</option>
-                          <option value="NY">New York</option>
-                          <option value="TX">Texas</option>
-                          <option value="FL">Florida</option>
-                        </Select>
+                        <CustomSelect
+                          name="state"
+                          value={localData.state}
+                          onChange={handleLocalChange}
+                          placeholder="Select state"
+                          options={[
+                            { value: 'CA', label: 'California' },
+                            { value: 'NY', label: 'New York' },
+                            { value: 'TX', label: 'Texas' },
+                            { value: 'FL', label: 'Florida' },
+                            { value: 'IL', label: 'Illinois' },
+                            { value: 'WA', label: 'Washington' },
+                            { value: 'PA', label: 'Pennsylvania' },
+                            { value: 'OH', label: 'Ohio' },
+                          ]}
+                          className="w-full"
+                        />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        <label className="block text-base font-medium text-gray-700 dark:text-gray-300 mb-3">
                           City
                         </label>
-                        <Select name="city" value={localData.city} onChange={handleLocalChange}>
-                          <option value="">Select city</option>
-                          <option value="san-francisco">San Francisco</option>
-                          <option value="los-angeles">Los Angeles</option>
-                          <option value="new-york">New York</option>
-                        </Select>
+                        <CustomSelect
+                          name="city"
+                          value={localData.city}
+                          onChange={handleLocalChange}
+                          placeholder="Select city"
+                          options={[
+                            { value: 'san-francisco', label: 'San Francisco' },
+                            { value: 'los-angeles', label: 'Los Angeles' },
+                            { value: 'new-york', label: 'New York' },
+                            { value: 'austin', label: 'Austin' },
+                            { value: 'seattle', label: 'Seattle' },
+                            { value: 'chicago', label: 'Chicago' },
+                            { value: 'boston', label: 'Boston' },
+                            { value: 'miami', label: 'Miami' },
+                          ]}
+                          className="w-full"
+                        />
                       </div>
                     </div>
                   </div>
                 </Step>
 
                 <Step>
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                      Business Information
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                      Provide details about your business
-                    </p>
+                  <div className="space-y-8">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Domain / Industry
-                      </label>
-                      <Input
-                        type="text"
-                        name="domain"
-                        value={localData.domain}
-                        onChange={handleLocalChange}
-                        placeholder="e.g., SaaS, E-commerce"
-                      />
+                      <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                        Business Information
+                      </h3>
+                      <p className="text-lg text-gray-500 dark:text-gray-400">
+                        Provide details about your business
+                      </p>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Core Service
-                      </label>
-                      <Input
-                        type="text"
-                        name="coreService"
-                        value={localData.coreService}
-                        onChange={handleLocalChange}
-                        placeholder="e.g., Project Management"
-                      />
+                    <div className="space-y-5">
+                      <div>
+                        <label className="block text-base font-medium text-gray-700 dark:text-gray-300 mb-3">
+                          Domain / Industry
+                        </label>
+                        <Input
+                          type="text"
+                          name="domain"
+                          value={localData.domain}
+                          onChange={handleLocalChange}
+                          placeholder="e.g., SaaS, E-commerce"
+                          className="w-full"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-base font-medium text-gray-700 dark:text-gray-300 mb-3">
+                          Core Service
+                        </label>
+                        <Input
+                          type="text"
+                          name="coreService"
+                          value={localData.coreService}
+                          onChange={handleLocalChange}
+                          placeholder="e.g., Project Management"
+                          className="w-full"
+                        />
+                      </div>
                     </div>
                   </div>
                 </Step>
@@ -284,25 +312,25 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Local Analysis Results */}
             {selectedType === 'local' && showResults && (
-              <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-8 animate-fadeIn">
+              <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl p-12 animate-fadeIn">
                 <div className="text-center mb-6">
                   <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
                     Analysis Complete! 🎉
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-6">
-                    Your local competitive analysis is ready. Download your report below:
+                    Your geographical competitor analysis is ready. Download your report below:
                   </p>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button
                     onClick={() => handleDownload('pdf')}
-                    className="flex items-center justify-center gap-2 px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 active:bg-red-700 transition-colors font-semibold"
+                    className="flex items-center justify-center gap-2 px-8 py-4 bg-red-500 text-white rounded-xl hover:bg-red-600 active:bg-red-700 transition-colors duration-200 font-semibold text-base shadow-sm"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -311,7 +339,7 @@ export const Hero: React.FC<HeroProps> = ({
                   </button>
                   <button
                     onClick={() => handleDownload('doc')}
-                    className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 active:bg-blue-700 transition-colors font-semibold"
+                    className="flex items-center justify-center gap-2 px-8 py-4 bg-primary-500 text-white rounded-xl hover:bg-primary-600 active:bg-primary-700 transition-colors duration-200 font-semibold text-base shadow-sm"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -342,24 +370,29 @@ export const Hero: React.FC<HeroProps> = ({
                 backButtonText="← Back"
               >
                 <Step>
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                      Website Information
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                      Enter your website URL for analysis
-                    </p>
+                  <div className="space-y-8">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Website URL
-                      </label>
-                      <Input
-                        type="url"
-                        name="websiteUrl"
-                        value={onlineData.websiteUrl}
-                        onChange={handleOnlineChange}
-                        placeholder="https://yourwebsite.com"
-                      />
+                      <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                        Website Information
+                      </h3>
+                      <p className="text-lg text-gray-500 dark:text-gray-400">
+                        Enter your website URL for analysis
+                      </p>
+                    </div>
+                    <div className="space-y-5">
+                      <div>
+                        <label className="block text-base font-medium text-gray-700 dark:text-gray-300 mb-3">
+                          Website URL
+                        </label>
+                        <Input
+                          type="url"
+                          name="websiteUrl"
+                          value={onlineData.websiteUrl}
+                          onChange={handleOnlineChange}
+                          placeholder="https://yourwebsite.com"
+                          className="w-full"
+                        />
+                      </div>
                     </div>
                   </div>
                 </Step>
@@ -368,25 +401,25 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Online Analysis Results */}
             {selectedType === 'online' && showResults && (
-              <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-8 animate-fadeIn">
+              <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl p-12 animate-fadeIn">
                 <div className="text-center mb-6">
                   <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
                     Analysis Complete! 🎉
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-6">
-                    Your online competitive analysis is ready. Download your report below:
+                    Your online competitor analysis is ready. Download your report below:
                   </p>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button
                     onClick={() => handleDownload('pdf')}
-                    className="flex items-center justify-center gap-2 px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 active:bg-red-700 transition-colors font-semibold"
+                    className="flex items-center justify-center gap-2 px-8 py-4 bg-red-500 text-white rounded-xl hover:bg-red-600 active:bg-red-700 transition-colors duration-200 font-semibold text-base shadow-sm"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -395,7 +428,7 @@ export const Hero: React.FC<HeroProps> = ({
                   </button>
                   <button
                     onClick={() => handleDownload('doc')}
-                    className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 active:bg-blue-700 transition-colors font-semibold"
+                    className="flex items-center justify-center gap-2 px-8 py-4 bg-primary-500 text-white rounded-xl hover:bg-primary-600 active:bg-primary-700 transition-colors duration-200 font-semibold text-base shadow-sm"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -426,86 +459,57 @@ export const Hero: React.FC<HeroProps> = ({
                 backButtonText="← Back"
               >
                 <Step>
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                      Industry Information
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                      Tell us about your market
-                    </p>
+                  <div className="space-y-8">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Domain / Industry
-                      </label>
-                      <Input
-                        type="text"
-                        name="domain"
-                        value={marketData.domain}
-                        onChange={handleMarketChange}
-                        placeholder="e.g., Cloud Computing, FinTech"
-                      />
+                      <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                        Industry Information
+                      </h3>
+                      <p className="text-lg text-gray-500 dark:text-gray-400">
+                        Tell us about your market
+                      </p>
+                    </div>
+                    <div className="space-y-5">
+                      <div>
+                        <label className="block text-base font-medium text-gray-700 dark:text-gray-300 mb-3">
+                          Domain / Industry
+                        </label>
+                        <Input
+                          type="text"
+                          name="domain"
+                          value={marketData.domain}
+                          onChange={handleMarketChange}
+                          placeholder="e.g., Cloud Computing, FinTech"
+                          className="w-full"
+                        />
+                      </div>
                     </div>
                   </div>
                 </Step>
 
                 <Step>
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                      Product Details
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                      What products or services do you offer?
-                    </p>
+                  <div className="space-y-8">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Product Offering
-                      </label>
-                      <Input
-                        type="text"
-                        name="productOffering"
-                        value={marketData.productOffering}
-                        onChange={handleMarketChange}
-                        placeholder="e.g., CRM Software"
-                      />
+                      <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                        Product / Service Details
+                      </h3>
+                      <p className="text-lg text-gray-500 dark:text-gray-400">
+                        What products or services do you offer?
+                      </p>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Service (Optional)
-                      </label>
-                      <Input
-                        type="text"
-                        name="service"
-                        value={marketData.service}
-                        onChange={handleMarketChange}
-                        placeholder="e.g., Cloud-based Solutions"
-                      />
-                    </div>
-                  </div>
-                </Step>
-
-                <Step>
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                      Review & Generate
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                      Review your information and generate the report
-                    </p>
-                    <div className="bg-primary-50 dark:bg-primary-900/20 rounded-lg p-4 space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-600 dark:text-gray-400">Industry:</span>
-                        <span className="font-medium text-gray-900 dark:text-white">{marketData.domain || 'Not specified'}</span>
+                    <div className="space-y-6">
+                      <div>
+                        <label className="block text-base font-medium text-gray-700 dark:text-gray-300 mb-3">
+                          Product / Service Offering
+                        </label>
+                        <Input
+                          type="text"
+                          name="productOffering"
+                          value={marketData.productOffering}
+                          onChange={handleMarketChange}
+                          placeholder="e.g., CRM Software, Cloud Solutions, IT Consulting"
+                          className="w-full"
+                        />
                       </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-600 dark:text-gray-400">Product:</span>
-                        <span className="font-medium text-gray-900 dark:text-white">{marketData.productOffering || 'Not specified'}</span>
-                      </div>
-                      {marketData.service && (
-                        <div className="flex justify-between text-sm">
-                          <span className="text-gray-600 dark:text-gray-400">Service:</span>
-                          <span className="font-medium text-gray-900 dark:text-white">{marketData.service}</span>
-                        </div>
-                      )}
                     </div>
                   </div>
                 </Step>
@@ -514,14 +518,14 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Market Research Results */}
             {selectedType === 'market' && showResults && (
-              <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-8 animate-fadeIn">
+              <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl p-12 animate-fadeIn">
                 <div className="text-center mb-6">
                   <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
                     Analysis Complete! 🎉
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-6">
@@ -529,10 +533,10 @@ export const Hero: React.FC<HeroProps> = ({
                   </p>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button
                     onClick={() => handleDownload('pdf')}
-                    className="flex items-center justify-center gap-2 px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 active:bg-red-700 transition-colors font-semibold"
+                    className="flex items-center justify-center gap-2 px-8 py-4 bg-red-500 text-white rounded-xl hover:bg-red-600 active:bg-red-700 transition-colors duration-200 font-semibold text-base shadow-sm"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -541,7 +545,7 @@ export const Hero: React.FC<HeroProps> = ({
                   </button>
                   <button
                     onClick={() => handleDownload('doc')}
-                    className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 active:bg-blue-700 transition-colors font-semibold"
+                    className="flex items-center justify-center gap-2 px-8 py-4 bg-primary-500 text-white rounded-xl hover:bg-primary-600 active:bg-primary-700 transition-colors duration-200 font-semibold text-base shadow-sm"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

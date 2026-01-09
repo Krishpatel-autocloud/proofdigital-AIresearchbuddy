@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Hero, HowItWorks, Footer } from './components';
+import { Header, Hero, HowItWorks } from './components';
 import { Login } from './components/Login/Login';
 import { useAuth } from './context/AuthContext';
 import './App.css';
@@ -37,7 +37,6 @@ const App: React.FC = () => {
         />
         <HowItWorks />
       </main>
-      <Footer />
     </div>
   );
 };

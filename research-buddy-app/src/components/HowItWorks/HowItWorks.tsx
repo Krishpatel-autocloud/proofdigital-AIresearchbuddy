@@ -65,7 +65,7 @@ export const HowItWorks: React.FC = () => {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="relative bg-white dark:bg-gray-950 rounded-2xl p-8 border border-gray-200 dark:border-gray-800 hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-300 group"
+              className="relative bg-white dark:bg-gray-950 rounded-2xl p-8 border border-gray-200 dark:border-gray-800 hover:border-primary-400 dark:hover:border-primary-500 hover:shadow-xl transition-all duration-300 group shadow-sm"
             >
               {/* Step Number */}
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-primary-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
@@ -108,7 +108,7 @@ export const HowItWorks: React.FC = () => {
             </p>
             <button 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="bg-primary-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-600 active:bg-primary-700 transition-colors inline-flex items-center gap-2"
+              className="bg-primary-500 text-white px-8 py-4 rounded-xl font-semibold text-base hover:bg-primary-600 active:bg-primary-700 transition-colors duration-200 inline-flex items-center gap-2 shadow-sm"
             >
               Start Your Research
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
